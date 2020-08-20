@@ -2,7 +2,8 @@ defmodule KataResuelveTest do
   use ExUnit.Case
   doctest KataResuelve
 
-  test "greets the world" do
-    assert KataResuelve.hello() == :world
+  test "get map from json file" do
+    path = './jugadores.json'
+    assert KataResuelve.parser_map_from_json_file(path) == %{}
   end
 end

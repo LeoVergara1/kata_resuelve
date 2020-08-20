@@ -7,12 +7,16 @@ defmodule KataResuelve do
   Hello world.
 
   ## Examples
-
-      iex> KataResuelve.hello()
-      :world
+      iex> path = './file.json'
+      iex> KataResuelve.parser_map_from_json_file(path)
+      %{}
 
   """
-  def hello do
-    :world
+  def parser_map_from_json_file(path) do
+    case File.read(path) do
+      {:ok, file} -> IO.inspect file
+      {:error, _} -> IO.puts "Error to read file"
+    end
+    %{}
   end
 end
