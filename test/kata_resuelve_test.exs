@@ -48,4 +48,9 @@ defmodule KataResuelveTest do
     bonus = 10000.00
     assert KataResuelve.calculate_total_salary(percentage_player, percentage_team, salary, bonus) == 59550.00
   end
+
+  test "calculate all bonus by players in json" do
+    juan = List.first(KataResuelve.calculate_all_bonus_by_players_json("./jugadores.json"))
+    assert juan  == %{"equipo" => "rojo", "goles_minimos" => 15, "nombre" => "Juan Perez", "sueldo" => 50000, "sueldo_completo" => 67833.33}
+  end
 end

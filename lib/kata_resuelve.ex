@@ -25,7 +25,26 @@ defmodule KataResuelve do
 
   def calculate_total_salary(percentage_player, percentage_team, salary, bonus) do
     bonus_neto = (((percentage_player + percentage_team)/2) / 100) * bonus
-    IO.inspect bonus
-    salary + bonus_neto
+    Float.round(salary + bonus_neto, 2)
+  end
+
+  def calculate_percentage_by_player(goals_player, level) do
+    percentage = (goals_player / @goals_by_nivel[level]) * 100
+    if percentage > 100, do: 100, else: percentage
+  end
+
+  def calculate_all_bonus_by_players_json(path) do
+    list_players = parser_map_from_json_file(path)
+    percentages_by_team = calculate_percentage_by_team(list_players["jugadores"])
+    Enum.map(list_players["jugadores"], fn (player) ->
+      percentage_player = calculate_percentage_by_player(player["goles"], player["nivel"])
+      %{
+        "nombre" => player["nombre"],
+        "goles_minimos" => @goals_by_nivel[player["nivel"]],
+        "sueldo" => player["sueldo"],
+        "sueldo_completo" => calculate_total_salary(percentage_player, percentages_by_team[player["equipo"]], player["sueldo"], player["bono"]),
+        "equipo" => player["equipo"]
+       }
+    end)
   end
 end
