@@ -47,4 +47,8 @@ defmodule KataResuelve do
        }
     end)
   end
+
+  def write_json_file_from_map(map, name_file) do
+    File.write(name_file, Jason.encode!(map))
+  end
 end
