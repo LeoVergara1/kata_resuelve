@@ -12,11 +12,11 @@
   mix deps.get
   mix test
   ```
-  Esto ejecutara las pruebas, arrojando como resultado final un json con el nombre jugadores_resuelve.json el cual contiener el resultado de la prueba
+  Esto ejecutará las pruebas, arrojando como resultado final un json con el nombre jugadores_resuelve.json el cual contiene el resultado de la prueba
 
 ## Notas
 
- * Si se desea cam biar el json sólo tenmos que modificar o sustituir el archivo jugadores.json
+ * Si se desea cambiar el json sólo tenemos que modificar o sustituir el archivo jugadores.json
  * El script calcula bonos por equipo
 
 
