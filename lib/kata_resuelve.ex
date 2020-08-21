@@ -41,7 +41,9 @@ defmodule KataResuelve do
       %{
         "nombre" => player["nombre"],
         "goles_minimos" => @goals_by_nivel[player["nivel"]],
+        "goles" => player["goles"],
         "sueldo" => player["sueldo"],
+        "bono" => player["bono"],
         "sueldo_completo" => calculate_total_salary(percentage_player, percentages_by_team[player["equipo"]], player["sueldo"], player["bono"]),
         "equipo" => player["equipo"]
        }

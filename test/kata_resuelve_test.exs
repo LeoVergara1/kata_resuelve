@@ -51,7 +51,7 @@ defmodule KataResuelveTest do
 
   test "calculate all bonus by players in json" do
     juan = List.first(KataResuelve.calculate_all_bonus_by_players_json("./jugadores.json"))
-    assert juan  == %{"equipo" => "rojo", "goles_minimos" => 15, "nombre" => "Juan Perez", "sueldo" => 50000, "sueldo_completo" => 67833.33}
+    assert juan  == %{"equipo" => "rojo", "goles_minimos" => 15, "nombre" => "Juan Perez", "sueldo" => 50000, "sueldo_completo" => 67833.33, "bono" => 25000, "goles" => 10}
   end
 
   test "write json file from map" do
