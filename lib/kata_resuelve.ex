@@ -18,10 +18,14 @@ defmodule KataResuelve do
       goal_players_by_team = Enum.map(value, fn(x) -> x["goles"] end)
       goal_require_by_team = Enum.map(value, fn(x) -> @goals_by_nivel[x["nivel"]] end)
       percentage = Enum.sum(goal_players_by_team) / Enum.sum(goal_require_by_team) * 100
+      percentage = if percentage > 100, do: 100, else: percentage
       {key, percentage}
     end
   end
 
-  def calculate_total_salary do
+  def calculate_total_salary(percentage_player, percentage_team, salary, bonus) do
+    bonus_neto = (((percentage_player + percentage_team)/2) / 100) * bonus
+    IO.inspect bonus
+    salary + bonus_neto
   end
 end

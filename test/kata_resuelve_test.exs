@@ -38,10 +38,14 @@ defmodule KataResuelveTest do
       "equipo" => "rojo"
       },
     ]
-    assert KataResuelve.calculate_percentage_by_team(player) == %{"azul" => 70.0, "rojo" => 146.66666666666666} ## Duda!!! Que pasa si el equipo anota más goles de los requeridos!! Se toma como extra?
+    assert KataResuelve.calculate_percentage_by_team(player) == %{"azul" => 70.0, "rojo" => 100} ## Duda!!! Que pasa si el equipo anota más goles de los requeridos!! Se toma como extra?
   end
 
   test "calculate total salary" do
-    
+    salary = 50000.00
+    percentage_player = 95
+    percentage_team = 96
+    bonus = 10000.00
+    assert KataResuelve.calculate_total_salary(percentage_player, percentage_team, salary, bonus) == 59550.00
   end
 end
